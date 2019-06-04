@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 var app = express();
 
@@ -37,10 +37,17 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About Page'
+        pageTitle: 'About Page',
+        aboutMessage: 'I am Node.Js developer currently learning and developing new things'
     });
 });
 
+app.get('/project', (req, res) => {
+    res.render('project.hbs', {
+        pageTitle: 'Node Server Project',
+        message: 'This a node server project that is live now!!!'
+    });
+});
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: "Unable to load the page!"
